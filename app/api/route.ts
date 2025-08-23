@@ -37,17 +37,30 @@ export async function GET(req: Request) {
 
     const r2: any = await yahooFinance.chart(ticker, queryOptionsDiv);
     const dividends = r2.events?.dividends;
-    const parsed = await Promise.all(
-        Object.values(dividends).map(async (div: any) => {
+    
+    let oldshares = shares;
+    let parsed: any[] = [];
+
+    for (const div of Object.values(dividends) as any[]) {
         const divDate = new Date(div.date * 1000).toISOString().split("T")[0];
         const clsAmt = await closeAmount(divDate, ticker);
-        return {
+        
+        const divUpdateAmt = div.amount * oldshares;
+        const newShares = divUpdateAmt / clsAmt;
+        const sharesAfter = newShares + oldshares;
+        
+        parsed.push ({
             date: divDate,
             amount: div.amount,
             divAmt: div.amount * shares,
-            clsAmt
-        };        
-    }));
+            clsAmt,
+            oldshares,
+            divUpdateAmt,
+            newShares,
+            sharesAfter
+        });
+        oldshares = sharesAfter        
+    }
 
     return NextResponse.json({ ticker, shares, parsed });
 }

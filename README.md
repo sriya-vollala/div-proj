@@ -5,13 +5,12 @@ I built this to practice Java, Spring Boot, REST APIs, and basic financial model
 
 
 
-
 **🚀 Features**
-Calculates long-term investment growth
+- Calculates long-term investment growth
 
-Supports recurring contributions
+- Supports recurring contributions
 
-Clean UI and features results in table
+- Clean UI and features results in table
 
 
 
@@ -26,5 +25,5 @@ Tailwind CSS
 Deployed on Netlify
 
 
-
+Deployed at...
 **https://div-tracker.netlify.app/**

@@ -1,18 +1,20 @@
-📈 Dividend Reinvestment Calculator
-
+**📈 Dividend Reinvestment Calculator
+**
 A simple backend project that models investment growth and dividend reinvestment over time.
 I built this to practice Java, Spring Boot, REST APIs, and basic financial modeling.
 
-🚀 Features
 
+**🚀 Features
+**
 Calculates long-term investment growth
 
 Supports recurring contributions
 
 Clean UI and features results in table
 
-🛠 Tech Stack
 
+**🛠 Tech Stack
+**
 Next.js (React + API Routes)
 
 TypeScript 
